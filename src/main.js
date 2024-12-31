@@ -1,34 +1,40 @@
-// main.js
-
-/* O arquivo main.js é o ponto de entrada e conecta os módulos. */
-import { config } from './modules/config.js';
+// Importações dos módulos
 import { nodes, links } from './modules/data.js';
-import { createSVG, renderGraph } from './modules/render.js';
+import { createSVG, renderGraph, addLegend } from './modules/render.js';
 import { enableZoom, addDragBehavior } from './modules/interaction.js';
 
-// Cria o SVG
+// Configurações do gráfico
+const width = 800;
+const height = 600;
+
+// Criação do SVG
 const svg = createSVG("body");
 
-// Configura a simulação de força
+// Configuração da simulação de força
 const simulation = d3.forceSimulation(nodes)
-    .force("link", d3.forceLink(links).id(d => d.id))
-    .force("charge", d3.forceManyBody())
-    .force("center", d3.forceCenter(config.width / 2, config.height / 2));
+    .force("link", d3.forceLink(links).id(d => d.id).distance(100))
+    .force("charge", d3.forceManyBody().strength(-200))
+    .force("center", d3.forceCenter(width / 2, height / 2));
 
-// Renderiza o gráfico
+// Renderização do gráfico (nós e links)
 const { node, link } = renderGraph(svg, nodes, links);
+
+// Adiciona a legenda
+addLegend(svg);
 
 // Adiciona interatividade
 enableZoom(svg);
 node.call(addDragBehavior(simulation));
 
-// Atualiza a simulação
+// Atualização contínua durante a simulação
 simulation.on("tick", () => {
-    link.attr("x1", d => d.source.x)
-        .attr("y1", d => d.source.y)
-        .attr("x2", d => d.target.x)
-        .attr("y2", d => d.target.y);
+  link
+    .attr("x1", d => d.source.x)
+    .attr("y1", d => d.source.y)
+    .attr("x2", d => d.target.x)
+    .attr("y2", d => d.target.y);
 
-    node.attr("cx", d => d.x)
-        .attr("cy", d => d.y);
+  node
+    .attr("cx", d => d.x)
+    .attr("cy", d => d.y);
 });
