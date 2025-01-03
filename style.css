@@ -1,0 +1,102 @@
+/* Configurações globais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+
+.lengenda {
+    width: 30%;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.lengenda h1 {
+    font-size: 24px;
+    margin-bottom: 16px;
+    color: #333333;
+    text-align: center;
+}
+
+.node-list {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.node-item {
+    display: flex;
+    padding-left: 20px;
+    white-space: nowrap;
+    transition: background-color 0.3s ease;
+}
+
+
+.bola-estudante {
+    background-color: blue;
+}
+.bola-proprietario {
+    background-color: green;
+}
+.bola-administrador {
+    background-color: red;
+}
+.bola-acomodacao1,
+.bola-acomodacao2 {
+    background-color: orange;
+}
+.bola-pagamento {
+    background-color: gray;
+}
+.bola-login {
+    background-color: pink;
+}
+.bola-cadProprietario,
+.bola-cadEstudante {
+    background-color: purple;
+}
+.bola-bancodados {
+    background-color: yellow;
+}
+.bola-chat,
+.bola-notificacao {
+    background-color: black;
+}
+.bola-sistemaDeBusca {
+    background-color: cyan;
+}
+
+/* Estilo da bolinha de cada item */
+.bola-estudante, .bola-proprietario, .bola-administrador, 
+.bola-acomodacao1, .bola-acomodacao2, .bola-pagamento, 
+.bola-login, .bola-cadProprietario, .bola-cadEstudante, 
+.bola-bancodados, .bola-chat, .bola-notificacao, .bola-sistemaDeBusca {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    margin-right: 10px;
+    flex-shrink: 0;
+    display: flex;
+}
+
+
+/* Adicionando estilo ao grafo para ser exibido ao lado */
+#graph-container {
+    width: 90%;
+    height: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}

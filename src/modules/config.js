@@ -5,9 +5,8 @@ O módulo config.js define parâmetros globais usados em todo o projeto, como di
 */ 
 
 export const config = {
-    width: 800,
-    height: 600,
+    width: 1500,
+    height:730,
     nodeRadius: 10,
     zoomScale: [0.5, 4],
-    tooltipOffset: { x: 10, y: -20 }, // Offset para tooltips
 };
