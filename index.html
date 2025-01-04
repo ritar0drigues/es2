@@ -1,35 +1,86 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Visualização com D3.js</title>
-    <!-- Estilos básicos -->
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f9f9f9;
-        }
-        #graph-container {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            position: relative;
-        }
-    </style>
 </head>
 <body>
-    <!-- Container para o gráfico -->
-    <div id="graph-container"></div>
-
-    <!-- Script D3.js -->
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <!-- Script principal -->
+    <!-- O conteúdo visual gerado pelo D3 será anexado aqui -->
     <script type="module" src="src/main.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <div class="lengenda">
+        <h1>Lista de Nós</h1>
+        <ul class="node-list">
+            <div class="estudante">
+                <div class="bola-estudante">
+                    <li class="node-item">Estudante/Inquilino</li>
+                </div>
+            </div>
+            <div class="proprietario">
+                <div class="bola-proprietario">
+                    <li class="node-item">Proprietário</li>
+                </div>
+            </div>
+            <div class="administrador">
+                <div class="bola-administrador">
+                    <li class="node-item">Administrador</li>
+                </div>
+            </div>
+            <div class="acomodacao1">
+                <div class="bola-acomodacao1">
+                    <li class="node-item">Acomodação 1</li>
+                </div>
+            </div>
+            <div class="acomodacao2">
+                <div class="bola-acomodacao2">
+                    <li class="node-item">Acomodação 2</li>
+                </div>
+            </div>
+            <div class="pagamento">
+                <div class="bola-pagamento">
+                    <li class="node-item">Sistema de Pagamento</li>
+                </div>
+            </div>
+            <div class="login">
+                <div class="bola-login">
+                    <li class="node-item">sistema de Login</li>
+                </div>
+            </div>
+            <div class="cadProprietario">
+                <div class="bola-cadProprietario">
+                    <li class="node-item">Sistema de Cadastro Proprietário</li>
+                </div>
+            </div>
+            <div class="cadEstudante">
+                <div class="bola-cadEstudante">
+                    <li class="node-item">Sistema de Cadastro Estudante</li>
+                </div>
+            </div>
+            <div class="bancodados">
+                <div class="bola-bancodados">
+                    <li class="node-item">Sistema de Banco de Dados</li>
+                </div>
+            </div>
+            <div class="chat">
+                <div class="bola-chat">
+                    <li class="node-item">Sistema de Chat</li>
+                </div>
+            </div>
+            <div class="notificacao">
+                <div class="bola-notificacao">
+                    <li class="node-item">Sistema de Notificação</li>
+                </div>
+            </div>
+            <div class="cadEstudante">
+                <div class="bola-cadEstudante">
+                    <li class="node-item">Sistema de Busca</li>
+                </div>
+            </div>
+        </ul>
+    </div>
 </body>
 </html>

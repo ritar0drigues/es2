@@ -1,13 +1,41 @@
-import * as d3 from "https://d3js.org/d3.v7.min.js";
+// main.js
+/* O arquivo main.js é o ponto de entrada e conecta os módulos. */
+import { config } from './modules/config.js';
+import { nodes, links } from './modules/data.js';
+import { createSVG, renderGraph } from './modules/render.js';
+import { enableZoom, addDragBehavior } from './modules/interaction.js';
 
-const svg = d3.select("#graph-container")
-    .append("svg")
-    .attr("width", 800)
-    .attr("height", 600)
-    .style("background-color", "lightgray");
+// Cria o SVG
+const svg = createSVG("body");
 
-svg.append("circle")
-    .attr("cx", 400)
-    .attr("cy", 300)
-    .attr("r", 50)
-    .style("fill", "blue");
+// Configura a simulação de força
+const simulation = d3.forceSimulation(nodes)
+    .force("link", d3.forceLink(links).id(d => d.id).distance(100)) // Define a distância dos links, se necessário
+    .force("charge", d3.forceManyBody())
+    .force("center", d3.forceCenter(config.width / 2, config.height / 2));
+
+// Renderiza o gráfico
+const { node, link } = renderGraph(svg, nodes, links);
+
+// Adiciona interatividade
+enableZoom(svg);
+node.call(addDragBehavior(simulation));
+
+// Atualiza a simulação
+simulation.on("tick", () => {
+    link.attr("x1", d => d.source.x)
+        .attr("y1", d => d.source.y)
+        .attr("x2", d => d.target.x)
+        .attr("y2", d => d.target.y);
+
+    node.attr("cx", d => d.x)
+        .attr("cy", d => d.y);
+});
+
+// Reinicia a simulação após a interação
+function restartSimulation() {
+    simulation.alpha(1).restart(); // Reinicia a simulação
+}
+
+// Chamando a função para reiniciar a simulação sempre que um nó for arrastado
+node.on("start", restartSimulation);
