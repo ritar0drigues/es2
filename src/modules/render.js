@@ -36,12 +36,12 @@ export function renderGraph(svg, nodes, links) {
     .attr("stroke", d => {
       if (d.type === "register") return "blue";
       if (d.type === "message") return "purple";
-      if (d.type === "reply") return "green";
       if (d.type === "owns") return "orange";
-      if (d.type === "interested") return "red";
       if (d.type === "notify") return "gray";
       if (d.type === "rate") return "gold";
       if (d.type === "review") return "brown";
+      if (d.type === "search") return "lightgreen";
+
       return "black"; // Cor padrão
     })
     .attr("marker-end", "url(#arrow)");
@@ -61,8 +61,8 @@ export function renderGraph(svg, nodes, links) {
 
   // Simulação de força para o layout do gráfico
   const simulation = d3.forceSimulation(nodes)
-    .force("link", d3.forceLink(links).id(d => d.id).distance(150)) // Aumenta a distância entre nós
-    .force("charge", d3.forceManyBody().strength(-300)) // Atração entre nós
+    .force("link", d3.forceLink(links).id(d => d.id).distance(400)) // Aumenta a distância entre nós
+    .force("charge", d3.forceManyBody().strength(10))
     .force("center", d3.forceCenter(config.width / 2, config.height / 2))
     .on("tick", () => {
       link
@@ -95,32 +95,4 @@ export function renderGraph(svg, nodes, links) {
   }
 
   return { node, link };
-}
-
-// Adiciona legenda ao gráfico
-export function addLegend(svg) {
-  const legend = svg.append("g").attr("transform", `translate(${config.width - 200}, 20)`);
-  const linkTypes = [
-    { type: "register", color: "blue" },
-    { type: "message", color: "purple" },
-    { type: "reply", color: "green" },
-    { type: "owns", color: "orange" },
-    { type: "interested", color: "red" },
-    { type: "notify", color: "gray" },
-    { type: "rate", color: "gold" },
-    { type: "review", color: "brown" },
-  ];
-  linkTypes.forEach((link, i) => {
-    legend.append("circle")
-      .attr("cx", 0)
-      .attr("cy", i * 20)
-      .attr("r", 5)
-      .attr("fill", link.color);
-    legend.append("text")
-      .attr("x", 10)
-      .attr("y", i * 20 + 5)
-      .text(link.type)
-      .attr("font-size", "12px")
-      .attr("alignment-baseline", "middle");
-  });
 }

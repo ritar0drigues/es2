@@ -43,20 +43,21 @@ body {
 }
 
 
+
 .bola-estudante {
     background-color: blue;
 }
 .bola-proprietario {
     background-color: green;
 }
-.bola-administrador {
+.bola-Tela {
     background-color: red;
 }
 .bola-acomodacao1,
 .bola-acomodacao2 {
     background-color: orange;
 }
-.bola-pagamento {
+.bola-avaliacao {
     background-color: gray;
 }
 .bola-login {
@@ -69,19 +70,44 @@ body {
 .bola-bancodados {
     background-color: yellow;
 }
-.bola-chat,
-.bola-notificacao {
-    background-color: black;
+
+.bola-chat {
+    background-color: brown;
 }
 .bola-sistemaDeBusca {
     background-color: cyan;
 }
 
+.bola-Contato{
+    background-color: magenta;
+}
+
+.bola-Duvida{
+    background-color: lightgreen;
+}
+
+.bola-TelaPrincipal{
+    background-color: lightblue;
+}
+
+.bola-CadastroLocal{
+    background-color: coral;
+}
+
+.bola-AnaliseDados{
+    background-color: beige;
+}
+
+.bola-GerenciamentoPerfil{
+    background-color: teal;
+}
 /* Estilo da bolinha de cada item */
-.bola-estudante, .bola-proprietario, .bola-administrador, 
-.bola-acomodacao1, .bola-acomodacao2, .bola-pagamento, 
+.bola-estudante, .bola-proprietario, .bola-Tela, 
+.bola-acomodacao1, .bola-acomodacao2, .bola-avaliacao, 
 .bola-login, .bola-cadProprietario, .bola-cadEstudante, 
-.bola-bancodados, .bola-chat, .bola-notificacao, .bola-sistemaDeBusca {
+.bola-bancodados, .bola-chat, .bola-sistemaDeBusca, .bola-Contato, 
+.bola-Duvida, .bola-TelaPrincipal, .bola-CadastroLocal, .bola-AnaliseDados,
+.bola-GerenciamentoPerfil {
     width: 16px;
     height: 16px;
     border-radius: 50%;
@@ -100,3 +126,5 @@ body {
     border-radius: 8px;
     overflow: hidden;
 }
+
+  
