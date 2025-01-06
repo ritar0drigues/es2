@@ -39,3 +39,39 @@ function restartSimulation() {
 
 // Chamando a função para reiniciar a simulação sempre que um nó for arrastado
 node.on("start", restartSimulation);
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const items = document.querySelectorAll(".carrossel-item");
+    const prevBtn = document.querySelector(".prev-btn");
+    const nextBtn = document.querySelector(".next-btn");
+
+    let currentIndex = 0;
+
+    const updateCarousel = () => {
+        items.forEach((item, index) => {
+            item.classList.toggle("active", index === currentIndex);
+        });
+
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex === items.length - 1;
+    };
+
+    prevBtn.addEventListener("click", () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCarousel();
+        }
+    });
+
+    nextBtn.addEventListener("click", () => {
+        if (currentIndex < items.length - 1) {
+            currentIndex++;
+            updateCarousel();
+        }
+    });
+
+    updateCarousel(); // Inicializa o carrossel
+});
+
+

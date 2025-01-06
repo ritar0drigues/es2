@@ -62,6 +62,8 @@ export function renderGraph(svg, nodes, links) {
   // Simulação de força para o layout do gráfico
   const simulation = d3.forceSimulation(nodes)
     .force("link", d3.forceLink(links).id(d => d.id).distance(400)) // Aumenta a distância entre nós
+    .force("collide", d3.forceCollide(config.nodeRadius * 2)) // Evita colisões entre nós
+    .force("center", d3.forceCenter(config.width / 2, config.height / 2))
     .force("charge", d3.forceManyBody().strength(10))
     .force("center", d3.forceCenter(config.width / 2, config.height / 2))
     .on("tick", () => {

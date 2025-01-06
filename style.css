@@ -43,7 +43,6 @@ body {
 }
 
 
-
 .bola-estudante {
     background-color: blue;
 }
@@ -127,4 +126,97 @@ body {
     overflow: hidden;
 }
 
-  
+.carrossel-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(255, 255, 255, 0.5); /* Transparente */
+    backdrop-filter: blur(5px); /* Para um efeito de desfoque */
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.carrossel {
+    width: 100%;
+    height: auto;
+}
+
+.carrossel-item {
+    display: none;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carrossel-item.active {
+    display: block;
+    opacity: 1;
+}
+
+.carrossel-btn {
+    background-color: rgba(0, 123, 255, 0.8); /* Botões levemente transparentes */
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 5px;
+}
+
+.carrossel-btn:disabled {
+    background-color: rgba(204, 204, 204, 0.8);
+    cursor: not-allowed;
+}
+
+/* Estilos gerais para a lista */
+.node-item2 {
+    font-size: 16px;
+    padding: 10px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    position: relative; /* Necessário para o posicionamento da linha */
+}
+
+.node-item2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Distância da linha para o item */
+    width: 100%;
+    height: 3px; /* Espessura da linha */
+}
+
+/* Estilos específicos para cada link com a cor da linha */
+.link-registrar .node-item2::after {
+    background-color: blue; /* Linha azul */
+}
+
+.link-mensagem .node-item2::after {
+    background-color: purple; /* Linha roxa */
+}
+
+.link-possuir .node-item2::after {
+    background-color: orange; /* Linha laranja */
+}
+
+.link-notificar .node-item2::after {
+    background-color: gray; /* Linha cinza */
+}
+
+.link-avaliar .node-item2::after {
+    background-color: gold; /* Linha dourada */
+}
+
+.link-analisar .node-item2::after {
+    background-color: brown; /* Linha marrom */
+}
+
+.link-pesquisar .node-item2::after {
+    background-color: lightgreen; /* Linha verde-claro */
+}
+
+.link-comum .node-item2::after {
+    background-color: black; /* Linha preta */
+}
