@@ -56,4 +56,7 @@ export const links = [
   { source: "Sistema de Banco de Dados", target: "Sistema Cadastro de locais", type: "owns"},
   { source: "Sistema de Banco de Dados", target: "Sistema de Verificação de dados", type: "owns"},
   { source: "Sistema de Banco de Dados", target: "Sistema de gerenciamento do perfil", type: "owns"},
+  { source: "Sistema de Banco de Dados", target: "Tela Inicial", type: "owns"},
+  { source: "Sistema de Banco de Dados", target: "Proprietário", type: "owns"},
+  { source: "Sistema de Banco de Dados", target: "Estudante/Inquilino", type: "owns"},
 ];
