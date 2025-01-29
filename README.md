@@ -2,4 +2,4 @@
 
 Utilização da biblioteca D3.js para criação de uma interface gráfica:
 
-- Simulação de um framework que facilite a rastreabilidade de requisitos do nosso projeto baseado no artigo: "A visual framework for software requirements traceability" de Abdulkadir Ahmad Madaki1 e  Wan Mohd Nazmee Wan Zainon1
+- Simulação de um framework que facilite a rastreabilidade de requisitos do nosso projeto baseado no artigo: "A visual framework for software requirements traceability" de Abdulkadir Ahmad Madaki e  Wan Mohd Nazmee Wan Zainon
